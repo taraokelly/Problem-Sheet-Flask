@@ -21,7 +21,7 @@
     <h1>Hello, world!</h1>
 	
 	<div class="container">
-		<form action="/name" method="GET">
+		<form>
 			<div class="form-group">
 				<label for="name">Input</label> 
 				<input type="text" class="form-control" id= "name" name="name">
@@ -46,7 +46,7 @@
 	$("#submit").click(function(e) {
 		e.preventDefault();
 		data = {userinput: $("#name").val()}
-		$.get("/name", data, function(resbody)
+		$.post("/name", data, function(resbody)
 			{
 			$("#serveroutput").text(resbody);
 		});

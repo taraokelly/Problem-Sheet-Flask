@@ -10,7 +10,7 @@ app = fl.Flask(__name__)
 def root():
     return app.send_static_file('index.html')
 
-@app.route('/name', methods=["GET"])
+@app.route('/name', methods=["GET", "POST"])
 def fname():
 	name = fl.request.values["userinput"]
 	return 'Your name is ' + name
