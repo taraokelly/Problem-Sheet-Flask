@@ -1,15 +1,19 @@
-#from flask import Flask
+from flask import Flask
+from flask import request
+
 import flask as fl
 app = fl.Flask(__name__)
 
+#CORS(app)
 
 @app.route("/")
 def root():
     return app.send_static_file('index.html')
 
-@app.route('/name')
+@app.route('/name', methods=["GET"])
 def fname():
-	return 'Your name is ' + fl.request.values["name"]
+	name = fl.request.values["userinput"]
+	return 'Your name is ' + name
 	
 #@app.route("/")
 #def hello():
